@@ -37,7 +37,8 @@
     "ng-table": "~0.8.3",
     "angular-smart-table": "~2.1.8",
     "angular-touch": "~1.5.7",
-    "ng-password-strength": "~0.2.1"
+    "ng-password-strength": "~0.2.1",
+    "socket.io-client": "~1.4.8"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
