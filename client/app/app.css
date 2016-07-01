@@ -1,0 +1,346 @@
+.wallop-slider {
+  width: 100%;
+}
+
+.wallop-slider__list {
+  list-style: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallop-slider__item {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.wallop-slider__item img {
+  display: block;
+  width: 100%;
+}
+
+.wallop-slider__item--current {
+  display: block;
+  position: static;
+}
+
+/*==========  SPECIAL CONFIG  ==========*/
+.wallop-slider--rotate .wallop-slider__item--hide-previous,
+.wallop-slider--rotate .wallop-slider__item--hide-next {
+  display: block;
+}
+.wallop-slider--rotate .wallop-slider__item--hide-previous {
+  -webkit-animation: rotateToLeft 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  -moz-animation: rotateToLeft 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  -ms-animation: rotateToLeft 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: rotateToLeft 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+.wallop-slider--rotate .wallop-slider__item--hide-next {
+  -webkit-animation: rotateToRight 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  -moz-animation: rotateToRight 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  -ms-animation: rotateToRight 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: rotateToRight 450ms cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+/*==========  SPCECIAL ANIMATIONS  ==========*/
+@-webkit-keyframes rotateToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    transform: translate3d(-100%, 0, 0) rotate(90deg);
+  }
+}
+
+@-moz-keyframes rotateToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    transform: translate3d(-100%, 0, 0) rotate(90deg);
+  }
+}
+
+@-ms-keyframes rotateToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    transform: translate3d(-100%, 0, 0) rotate(90deg);
+  }
+}
+
+@keyframes rotateToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -moz-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    -ms-transform: translate3d(-100%, 0, 0) rotate(90deg);
+    transform: translate3d(-100%, 0, 0) rotate(90deg);
+  }
+}
+
+@-webkit-keyframes rotateToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    transform: translate3d(100%, 0, 0) rotate(-90deg);
+  }
+}
+
+@-moz-keyframes rotateToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    transform: translate3d(100%, 0, 0) rotate(-90deg);
+  }
+}
+
+@-ms-keyframes rotateToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    transform: translate3d(100%, 0, 0) rotate(-90deg);
+  }
+}
+
+@keyframes rotateToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -moz-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    -ms-transform: translate3d(100%, 0, 0) rotate(-90deg);
+    transform: translate3d(100%, 0, 0) rotate(-90deg);
+  }
+}
+/**
+ * Bootstrap Fonts
+*/
+.chat-container {
+    width: 400px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.chat-window {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    max-height: 600px;
+    height: auto;
+    width: 320px;
+}
+
+
+.chat-window.minimized {
+    height: 40px;
+}
+
+.chat-top-bar {
+    height: 40px;
+}
+
+.chat-bottom-bar {
+    height: 60px;
+}
+
+.msg-container-base {
+    height: auto;
+    max-height: 500px;
+}
+
+.panel-body {
+    padding: 0;
+}
+.btn:focus {
+  background-color: red;
+}
+.customcolor {
+  background-color: red;
+  
+
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot');
+    src: url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('../bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/**
+ *Font Awesome Fonts
+ */
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.1.0');
+    src: url('../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'),
+    url('../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.carousel-control {
+  padding-top:10%;
+  width:5%;
+}
+
+/* To fix tablesort plugin text while data is loading it shows No data */
+.showIfLast td:after {
+    content: "" !important;
+}
+/* To fix tablesort plugin */
+.stripe-button-el{
+  display: none !important;
+}
+.dropdown{
+  text-align: left;
+}
+.btn-group:hover>.dropdown-menu {
+display: block;
+}
+.panel-footer{
+  background-color: #eee;
+}
+.post .image img{
+  margin-left: auto;
+  margin-right: auto;
+  -moz-box-shadow: 0px 0px 5px #686961;
+  -webkit-box-shadow: 0px 0px 5px #686961;
+  box-shadow: 0px 0px 5px #686961;
+}
+#top ul.menu .dropdown-menu a{
+  color: #222 !important;
+}
+
+/**
+ * App-wide Styles
+ */
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+
+color: #858585;
+background-color: #fff;
+border: 1px solid #d5d5d5;
+padding: 5px 8px 6px;
+font-size: 14px;
+font-family: FontAwesome;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
+-webkit-transition-duration: .1s;
+transition-duration: .1s;
+
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px ;
+border-radius: 4px ;
+
+
+}
+.input-icon>.search-icon {
+padding: 0 3px;
+z-index: 2;
+position: absolute;
+top: 1px;
+bottom: 1px;
+left: 3px;
+line-height: 28px;
+display: inline-block;
+color: #909090;
+font-size: 16px;
+}
+.nav-search .nav-search-icon {
+color: #6fb3e0 !important;
+font-size: 14px !important;
+line-height: 24px !important;
+background-color: transparent;
+}
+.nav-search .nav-search-icon {
+border: none;
+border-radius: 0;
+padding: 0 3px !important;
+}
+.nav-search .search-icon {
+text-align: center;
+}
+
+.nav-search .input-icon {
+position: relative;
+}
+.nav-search span.input-icon {
+display: inline-block;
+}
+.nav-search .input-icon>input {
+padding-left: 24px;
+padding-right: 6px;
+}
+.sw-search {
+float: right;
+margin-top: -4.5px;
+}
+.nav-search .nav-search-input {
+border: 1px solid #6fb3e0;
+width: 152px;
+height: 28px !important;
+padding-top: 2px;
+padding-bottom: 2px;
+border-radius: 4px !important;
+font-size: 13px;
+line-height: 1.3;
+color: #666 !important;
+z-index: 11;
+-webkit-transition: width ease .15s;
+transition: width ease .15s;
+}
