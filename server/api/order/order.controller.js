@@ -35,8 +35,50 @@ exports.create = function(req, res) {
   req.body.orderNo = shortId.generate();
   req.body.status = {name:"Order Placed", val:201};
   Order.create(req.body, function(err, order) {
+
+
+
     if(err) { return handleError(res, err); }
+    var nodemailer = require("nodemailer");
+
+			// create reusable transporter object using the default SMTP transport 
+		var transporter = nodemailer.createTransport('smtps://smkorera%40gmail.com:1994Kingsss@smtp.gmail.com');
+		 
+		// setup e-mail data with unicode symbols 
+		var mailOptions = {
+		    from: '"Ardath Online 👥" <info@aardath.com>', // sender address 
+		    to: 'smkorera@gmail.com', // list of receivers 
+		    subject: 'New Order ✔', // Subject line 
+		    text: 'Thank you for choosing Aadath.Our Goal is to provide you with the ultimate shopping experience', // plaintext body 
+		    html: '<b></b><br>New Order Recieved  !'+'From'+order.name+' of'+order.address // html body 
+		};
+
+		var mailOptions2 = {
+		    from: '"Ardath Online 👥" <info@aardath.com>', // sender address 
+		    to: order.uid, // list of receivers 
+		    subject: 'Order Successful ✔', // Subject line 
+		    text: 'Thank you for Order  your order will be shipped to you ', // plaintext body 
+		    html: '<b></b><br>Thank you for Ordering with Aadath  your order will be shipped to you in !'+'Order reference:'+order.orderNo // html body 
+		};
+		 
+		// send mail with defined transport object 
+		transporter.sendMail(mailOptions, function(error, info){
+		    if(error){
+		        return console.log(error);
+		    }
+		    console.log('Message sent: ' + info.response);
+		});
+
+		transporter.sendMail(mailOptions2, function(error, info){
+		    if(error){
+		        return console.log(error);
+		    }
+		    console.log('Message sent: ' + info.response);
+		});
+
     return res.status(201).json(order);
+
+    
   });
 };
 
@@ -50,6 +92,7 @@ exports.update = function(req, res) {
     if (err) { return handleError(res, err); }
     if(!order) { return res.status(404).send('Not Found'); }
     var updated = _.merge(order, req.body);
+    console.log(req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.status(200).json(order);
