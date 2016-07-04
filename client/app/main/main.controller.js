@@ -58,8 +58,7 @@ angular.module('shopnxApp')
         $scope.product = $scope.store.getProduct($stateParams.productSku);
     }
 
-
-
+ 	
 
 // For Price slider
     $scope.currencyFormatting = function(value){
@@ -162,9 +161,9 @@ angular.module('shopnxApp')
         if($scope.fl.categories.length>0){
           var categoryIds = [];
           angular.forEach($scope.fl.categories,function(category){
-            categoryIds.push(category._id);
+            categoryIds.push(category.category);
           });
-          f.push({'category._id' : { $in: categoryIds } });
+          f.push({'category.parentCategory' : { $in: categoryIds } });
         }
       }
       // if($scope.priceSlider)
@@ -1179,6 +1178,9 @@ angular.module('shopnxApp')
   
 	console.log($rootScope.nav);
 
+
+		var g = [];
+
       var nav = $rootScope.nav;
 
     $scope.data = null;
@@ -1186,11 +1188,12 @@ angular.module('shopnxApp')
         $scope.product = $scope.store.getProduct($stateParams.productSku);
     }
 
-    // console.log($stateParams._id);
+    console.log($stateParams._id);
 
     $scope.category = Category.get({id:$stateParams._id},function(data) {
       
       $scope.data = data.category;
+      console.log(data);
     });
 
 
@@ -1214,6 +1217,9 @@ angular.module('shopnxApp')
     }
 
     $scope.Types = Category.all.query();
+    $scope.categories = Category.all.query(function (data) {
+    	console.log(data);
+    });
 
     $scope.removeFeatures = function(feature){
       console.log($scope.fl.features,feature);
@@ -1271,7 +1277,6 @@ angular.module('shopnxApp')
       });
     };
 
-
     var sort = $scope.products.sort = $stateParams.sort;
     var q = {where:{active:true},limit:10};
 
@@ -1280,6 +1285,7 @@ angular.module('shopnxApp')
     var a = {};
     $scope.filter = function(){
       var f = [];
+
       if ($scope.products.busy){ return; }
       $scope.products.busy = true;
       if($scope.fl.features){
@@ -1299,12 +1305,30 @@ angular.module('shopnxApp')
         }
       }
       if($scope.fl.categories){
-        if($scope.fl.categories.length>0){
+         if($scope.fl.categories.length>0){
           var categoryIds = [];
+          var idFlag = null;
+          var parentFlag = null;
           angular.forEach($scope.fl.categories,function(category){
-            categoryIds.push(category._id);
+
+          if(category._id.length > 10){
+              idFlag = "hello";
+          	
+          }
+          	
+           categoryIds.push(category._id);
           });
-          f.push({'category._id' : { $in: categoryIds } });
+
+          if(idFlag){
+
+          	f.push({'category._id' : { $in: categoryIds } });
+          }else{
+      
+          	f.push({'category.parentCategory' : { $in: categoryIds } });
+          }
+
+
+          
         }
       }
       // if($scope.priceSlider)
