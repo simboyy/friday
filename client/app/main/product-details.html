@@ -75,7 +75,7 @@ _________________________________________________________ -->
 
                       <div class="text-center buttons">
                         <div class="btn-group">
-                        <a ui-sref="productDetail({id:product._id, slug:product.slug})" class="btn btn-default">View detail</a>
+                        <a ng-click="wishlist.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, quantity:1, image:product.variants[0].image,category:product.category, size:product.variants[0].size, weight:product.variants[0].weight} ,true);" ng-show="checkWishlist(product._id)" class="btn btn-default"><span class="glyphicon glyphicon-heart"></span>  Wishlist</a>
                         <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, weight:product.variants[0].weight}, -1)" ng-hide="checkCart(product._id)" class="btn btn-info">-</a>
 
                         <a ng-hide="checkCart(product._id)" class="btn btn-info">{{getQuantity(product._id);}}</a>
