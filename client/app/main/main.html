@@ -128,10 +128,10 @@
                 <!-- Controls -->
                 <div class="controls pull-right hidden-xs">
                 <div class="btn-group">
-                <a class="btn btn-danger left" href="#carousel-example"
-                        data-slide="prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                <a class="left glyphicon glyphicon-chevron-left btn btn-danger" href="#carousel-example"
+                        data-slide="prev"></a>
 
-                 <a class="btn btn-danger right" href="#carousel-example" data-slide="next"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                 <a class="right glyphicon glyphicon-chevron-right btn btn-danger" href="#carousel-example" data-slide="next"></a>
                 </div>
                     
                 </div>
@@ -182,7 +182,7 @@
 
                                       <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, weight:product.variants[0].weight}, +1)" ng-hide="checkCart(product._id)" class="btn btn-info">+</a>
                                       </div>
-                                      <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, quantity:1, image:product.variants[0].image,category:product.category, size:product.variants[0].size, weight:product.variants[0].weight} ,true);" ng-show="checkCart(product._id)" class="btn btn-danger"><i class="fa fa-shopping-cart"></i>Buy Item</a>
+                                      <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, quantity:1, image:product.variants[0].image,category:product.category, size:product.variants[0].size, weight:product.variants[0].weight} ,true);" ng-show="checkCart(product._id)" class="btn btn-danger"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </p>
                                     </div>
                                     <div class="clearfix">
@@ -235,7 +235,7 @@
 
                                       <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, weight:product.variants[0].weight}, +1)" ng-hide="checkCart(product._id)" class="btn btn-info">+</a>
                                       </div>
-                                      <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, quantity:1, image:product.variants[0].image,category:product.category, size:product.variants[0].size, weight:product.variants[0].weight} ,true);" ng-show="checkCart(product._id)" class="btn btn-danger"><i class="fa fa-shopping-cart"></i>Buy Item</a>
+                                      <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, quantity:1, image:product.variants[0].image,category:product.category, size:product.variants[0].size, weight:product.variants[0].weight} ,true);" ng-show="checkCart(product._id)" class="btn btn-danger"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </p>
                                     </div>
                                     <div class="clearfix">
@@ -257,13 +257,13 @@
              <h3 style="text-align:center">Categories</h3>
                  <div data-ng-repeat="option in Types" class="col-md-3">
                     <div>
-                        <a href="/Category/{{option.slug}}/{{option._id}}">
+                        <a href="/Category/{{option.slug}}/{{option.category}}">
                             <img ng-src="/assets/categories/{{option.name}}.png"
                                 err-src="/assets/images/photo.png">
                         </a>
 
                                 <div style="margin-left:60px">
-                                    <a href="/Category/{{option.slug}}/{{option._id}}"><b>{{option.name}}</b></a>
+                                    <a href="/Category/{{option.slug}}/{{option.category}}"><b>{{option.name}}</b></a>
                                    
                                    
                                 </div>
@@ -348,7 +348,7 @@
 
                                       <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, weight:product.variants[0].weight}, +1)" ng-hide="checkCart(product._id)" class="btn btn-info">+</a>
                                       </div>
-                                      <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, quantity:1, image:product.variants[0].image,category:product.category, size:product.variants[0].size, weight:product.variants[0].weight} ,true);" ng-show="checkCart(product._id)" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Buy Item</a>
+                                      <a ng-click="cart.addItem({sku:product._id, name:product.name, slug:product.slug, mrp:product.variants[0].mrp, price:product.variants[0].price, quantity:1, image:product.variants[0].image,category:product.category, size:product.variants[0].size, weight:product.variants[0].weight} ,true);" ng-show="checkCart(product._id)" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </p>
                                 </div> -->
                                 <!-- /.text -->
