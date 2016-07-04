@@ -1,32 +1,14 @@
 'use strict';
 
 angular.module('shopnxApp')
-  .controller('ContactCtrl', function ($scope, $modal,$log) {
+  .controller('ContactCtrl', function ($scope, $modal,$log,$window) {
   	var vm = this;
 
   	var p = null;
 
-  	$scope.openChat = function (size) {
-    
-
-    var modalInstance = $modal.open({
-      animation: vm.animationsEnabled,
-      templateUrl: 'chat.html',
-      controller: 'ChatInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return p;
-        }
-      }
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      vm.selected = selectedItem;
-
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
+  	$scope.openChat = function () {
+  	   $window.open('https://ardath-chat.herokuapp.com', 'C-Sharpcorner', 'width=600,height=700');
+  
   };
 
   $scope.messages = [
