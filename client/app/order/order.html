@@ -20,22 +20,28 @@
           <table class="table">
               <tbody>
                 <tr ng-repeat="i in o.items" >
-                    <td><img ng-src="/assets/clothing/{{i.image}}" err-src="/assets/images/photo.png" width="100px" />
+                    <td> <img ng-src="/assets/products/{{i.image}}"
+                                        err-src="/assets/images/photo.png"   margin-left="10px" style="position:relative;height:150px;width:100px">
                     </td>
                     <td>{{i.name}}
-                      <br/><span class="text-muted">Qty: {{i.quantity}}</span>
-                      <br/><span class="text-muted">Packing/Size: {{i.size}}</span>
-                      <br/><span class="text-muted">Unit Price: {{i.price | currency}}</span>
+                      <br/><span >Qty: {{i.quantity}}</span>
+                      <br/><span >Packing/Size: {{i.size}}</span>
+                      <br/><span >Unit Price: {{i.price | currency}}</span>
                     </td>
-                    <td><span class="text-muted">= {{i.quantity * i.price | currency}}</span></td>
+                    <td><span>= {{i.quantity * i.price | currency}}</span></td>
 
                 </tr>
-                <tr class="well text-muted">
+                <tr class="well">
                 <td colspan="1" class="text-right"> </td>
                 <td class="text-right">Shipping Charge:</td>
                 <td colspan="1"> {{o.shipping.charge | currency}}</td>
                 </tr>
-                <tr class="well text-muted">
+                 <tr class="well" ng-show="o.future">
+                <td colspan="1" class="text-right"> </td>
+                <td class="text-right">Shipping Date:</td>
+                <td colspan="1"> {{o.date | date}} </td>
+                </tr>
+                <tr class="well">
                 <td colspan="1" class="text-right"> </td>
                 <td class="text-right">Coupon:</td>
                 <td colspan="1"> {{o.shipping.couponAmount | currency}}</td>
