@@ -222,7 +222,7 @@ angular.module('shopnxApp', [
     });
 
     $rootScope.$on('$stateChangeSuccess', function (evt, toState) {
-        window.document.title = toState.title + ' - ShopNx';
+        window.document.title = toState.title + ' - Aardath';
     });
 
     $rootScope.spinner = {
