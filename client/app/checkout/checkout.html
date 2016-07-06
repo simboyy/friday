@@ -9,6 +9,9 @@
 <div class="col-md-7" id="checkout">
 
     <div class="box">
+	 <div ng-hide="cart.getTotalCount() > 0">
+    <a href="/" class="btn btn-danger"><i class="fa fa-chevron-left"></i>Start Shopping</a>
+</div>
       <form name="checkout_form" class="form-horizontal" role="form" novalidate ng-show="cart.getTotalCount() > 0">
         <ul class="nav nav-pills nav-justified">
             <li class="active disabled"><a href="#"><i class="fa fa-map-marker"></i><br>Address</a>
@@ -21,7 +24,7 @@
             </li>
         </ul>
       <div class="panel-heading">
-            <h3 class="panel-title">Enter shipping details</h3>
+           
       </div>
       <div class="panel-body">
           <div class="form-group">
@@ -57,18 +60,8 @@
                   </span>
               </div>
           </div>
-          <div class="form-group">
-              <label class="col-sm-3 control-label no-padding-right"> City </label>
-              <div class="col-sm-7">
-                 <span class="block input-icon input-icon-right">
-                      <input type="text" name="city" ng-model="customer.city" class="form-control" placeholder="Your city" tabindex="5"/>
-  <small class="errorMessage"
-       ng-show="checkout_form.city.$dirty && checkout_form.city.$invalid"> Please select your city.</small>
-                  </span>
-              </div>
-          </div>
 
-          <div class="form-group">
+           <div class="form-group">
               <label class="col-sm-3 control-label no-padding-right"> Surburb </label>
               <div class="col-sm-7">
                  <span class="block input-icon input-icon-right">
@@ -80,7 +73,22 @@
                   </span>
               </div>
           </div>
+
           <div class="form-group">
+              <label class="col-sm-3 control-label no-padding-right"> City </label>
+              <div class="col-sm-7">
+                 <span class="block input-icon input-icon-right">
+                      <input type="text" name="city" ng-model="customer.city" class="form-control" placeholder="Your city" tabindex="5"/>
+  <small class="errorMessage"
+       ng-show="checkout_form.city.$dirty && checkout_form.city.$invalid"> Please select your city.</small>
+                  </span>
+              </div>
+          </div>
+
+           
+
+         
+         <!-- <div class="form-group">
               <label class="col-sm-3 control-label no-padding-right"> State </label>
               <div class="col-sm-7">
                  <span class="block input-icon input-icon-right">
@@ -99,7 +107,7 @@
        ng-show="checkout_form.zip.$dirty && checkout_form.zip.$invalid"> Please select your state.</small>
                   </span>
               </div>
-          </div>
+          </div>-->
           <div class="form-group">
               <label class="col-sm-3 control-label no-padding-right"> Country </label>
               <div class="col-sm-7">
@@ -137,6 +145,37 @@
                   </span>
               </div>
           </div>
+
+          <div class="form-group">
+              <label class="col-sm-3 control-label no-padding-right"> Future Delivery</label>
+              <div class="col-sm-7">
+                 <span class="block input-icon input-icon-right">
+                      <input type="checkbox"  ng-model="customer.future" class="form-control" />
+  
+                  </span>
+              </div>
+          </div>
+           <div class="form-group" ng-show="customer.future">
+              <label class="col-sm-3 control-label no-padding-right">Date for Delivery</label>
+              <div class="col-sm-7">
+                 <span class="block input-icon input-icon-right">
+                      <input type="Date" name="delivery" ng-model="customer.date" class="form-control"  tabindex="5"/>
+  <small class="errorMessage"
+       ng-show="checkout_form.date.$dirty && checkout_form.date.$invalid"> Please enter date of delivery.</small>
+                  </span>
+              </div>
+          </div>
+
+          <div class="form-group" ng-show="customer.future">
+              <label class="col-sm-3 control-label no-padding-right">Time for Delivery</label>
+              <div class="col-sm-7">
+                 <span class="block input-icon input-icon-right">
+                      <input type="time" name="delivery" ng-model="customer.time" class="form-control"  tabindex="5"/>
+  <small class="errorMessage"
+       ng-show="checkout_form.time.$dirty && checkout_form.time.$invalid"> Please enter time of delivery.</small>
+                  </span>
+              </div>
+          </div>
             </div>
             <div class="box-footer">
                 <div class="pull-left">
@@ -157,7 +196,7 @@
 
 <div class="col-md-5">
 
-    <div class="box" id="order-summary" style="height:320px" ng-if="cart.getTotalCount()>0">
+    <div class="box" id="order-summary" style="height:370px" ng-if="cart.getTotalCount()>0">
         <div class="box-header">
             <h3>Order summary</h3>
         </div>
@@ -185,6 +224,17 @@
                         <td><small>{{cart.getTotalPriceAfterShipping(shipping , coupon.amount).couponAmount | currency}}</small></td>
                     </tr>
 
+                    <tr ng-if="shipping">
+                        <td>Estimated Delivery Time</td>
+                        <td ng-if="cart.getTotalPriceAfterShipping(shipping , coupon.amount).charge==0">
+                           &nbsp;
+                        </td>
+                        <td ng-if="cart.getTotalPriceAfterShipping(shipping , coupon.amount).charge>0">
+                            {{cart.getTotalPriceAfterShipping(shipping , coupon.amount).time }} <br/>
+                           
+                        </td>
+                    </tr>
+
                     <tr class="total">
                         <td>Total</td>
                         <th>
@@ -207,6 +257,7 @@
                 </div>
 
     </div>
+    <img  data-ng-src="assets/images/paypal_badge.jpg" data-err-src="images/png/avatar.png"/>
 
 </div>
 <!-- /.col-md-3 -->
