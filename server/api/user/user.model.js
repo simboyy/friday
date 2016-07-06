@@ -6,13 +6,14 @@ var crypto = require('crypto');
 var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
+  title: String,
   name: String,
   lastname:String,
+  sex:String,
   email: { type: String, lowercase: true },
   phone:String,
-  company:String,
-  currency:String,
-  timeZone:String,
+  address:String,
+  photo:Array,
   role: {
     type: String,
     default: 'user'
@@ -25,7 +26,6 @@ var UserSchema = new Schema({
   google: {},
   github: {}
 });
-
 /**
  * Virtuals
  */
