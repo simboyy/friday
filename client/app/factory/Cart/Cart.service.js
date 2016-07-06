@@ -130,7 +130,7 @@
 
   // get the total price for all items currently in the cart
   ShoppingCart.prototype.getShippingCharge = function (shipping) {
-    var totalWeight = 0, shippingCharge=0, minFreeShipping = 1000000, carrier, selectedShipping = {};
+    var totalWeight = 0, time = 0 ,shippingCharge=0, minFreeShipping = 1000000, carrier, selectedShipping = {};
     totalWeight = this.getTotalWeight();
     // Calculate Shipping Charge based on totalWeight and available shipping methods
     for(var i=0; i<shipping.length; i++){
@@ -138,11 +138,12 @@
         if(shipping[i].charge > shippingCharge){
           shippingCharge = shipping[i].charge;
           carrier = '('+shipping[i].carrier+')';
+          time = shipping[i].time;
        
       }
       console.log(shippingCharge, this.getTotalPrice(), minFreeShipping, shipping[i].minWeight ,shipping[i].maxWeight , shipping[i].charge, shipping[i].freeShipping);
     }
-    selectedShipping = {charge:shippingCharge, carrier:carrier, weight:totalWeight, minFreeShipping: minFreeShipping};
+    selectedShipping = {charge:shippingCharge, time:time ,carrier:carrier, weight:totalWeight, minFreeShipping: minFreeShipping};
     return selectedShipping;
   };
 
@@ -163,8 +164,9 @@
 
 
        console.log(selectedShipping);
+
       grandTotal = total + selectedShipping.charge - couponAmount;
-      ship = {total: grandTotal, charge:selectedShipping.charge, carrier:selectedShipping.carrier, more: selectedShipping.minFreeShipping-total,couponAmount:couponAmount};
+      ship = {total: grandTotal, charge:selectedShipping.charge,time:selectedShipping.time, carrier:selectedShipping.carrier, more: selectedShipping.minFreeShipping-total,couponAmount:couponAmount};
 
        console.log(ship);
       return ship;
