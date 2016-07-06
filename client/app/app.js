@@ -23,6 +23,7 @@ angular.module('shopnxApp', [
   'irontec.simpleChat',
   'ui.bootstrap',
   'ngPasswordStrength',
+  'naif.base64'
   
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
