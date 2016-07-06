@@ -30,7 +30,7 @@ _________________________________________________________ -->
 							          </div>
 							          <div class="panel-collapse collapse" id="collapseOne">
 							            <div class="panel-body">
-							              <ul class="list-group list-unstyled">
+							              <ul class="list-group">
 											<li ng-show="isAdmin()"  ng-class="{active: isActive('/product')}">
 							                    <a href="/product"><i class="fa fa-truck">&nbsp;</i>Products</a>
 							                  </li>
@@ -66,7 +66,7 @@ _________________________________________________________ -->
 							          </div>
 							          <div class="panel-collapse collapse" id="collapseTwo">
 							            <div class="panel-body">
-							              <ul class="list-group list-unstyled">
+							              <ul class="list-group">
 												<li ng-show="isAdmin()" ng-class="{active: isActive('/product')}">
 								                    <a href="/productmp"><i class="fa fa-truck">&nbsp;</i>Products</a>
 								                  </li>
@@ -101,7 +101,7 @@ _________________________________________________________ -->
 							          <div class="panel-collapse collapse" id="collapseTHREE">
 							            <div class="panel-body">
 
-								<ul class="list-group list-unstyled">
+								<ul class="list-group">
 									<li ng-show="isAdmin()" ng-class="{active: isActive('/product')}">
 					                    <a href="/productoi"><i class="fa fa-truck">&nbsp;</i>Products</a>
 					                  </li>
@@ -135,7 +135,7 @@ _________________________________________________________ -->
 							          <div class="panel-collapse collapse" id="collapseFour">
 							            <div class="panel-body">
 							              
-				<ul class="list-group list-unstyled" >
+				<ul class="list-group" >
 					<li ng-show="isAdmin()" ng-class="{active: isActive('/product')}">
 	                    <a href="/producttng"><i class="fa fa-truck">&nbsp;</i>Products</a>
 	                  </li>
@@ -161,10 +161,13 @@ _________________________________________________________ -->
 
 							    </li>
 
-
+				 <li ng-show="isLoggedIn()" ng-class="{active: isActive('/profile')}">
+                    <a href="/profile">Profile</a>
+                  </li>
 				<li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}">
                     <a href="/settings">Change Password</a>
                   </li>
+
                   <li ng-show="isAdmin()" ng-class="{active: isActive('/customer')}">
                     <a href="/customer">Customers</a>
                   </li>
@@ -261,7 +264,7 @@ _________________________________________________________ -->
          
               <ul ng-repeat="c in p.sub_categories">
                  <li><a ng-click="navigate({page:'Category',slug:c.slug ,id:c._id})">{{c.name}}</a>
-                                      </a>
+                                      
                                       </li>
                      
               
