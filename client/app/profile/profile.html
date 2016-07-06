@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="bower_components/angular-tablesort/tablesort.css" />
+<form name="product_form">
+   
+
+  <div class="col-md-6">
+    
+      <button type="submit" class="btn btn-danger" ng-click="save(user);"><i class="fa fa-save"></i> &nbsp;Save</button>
+      &nbsp;&nbsp;
+      
+
+      <hr/>
+    <div class="box" ng-if="profile._id">
+  
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+          <div class="col-md-12">
+
+          <div class="col-md-1">
+          </div>
+          <div class="col-md-10">
+
+
+               <div class="form-group row">
+                
+                <label for="name" class="col-md-6 control-label text-right">Title</label>
+                <div class="col-md-6">
+                <select ng-model="profile.title" class="form-control"  >
+                      <option value=""></option>
+                	<option value="Mr">Mr</option>
+                	<option value="Miss">Miss</option>
+                	<option value="Mrs">Mrs</option>
+
+                </select>
+                 
+                </div>
+              </div>
+              <hr/>
+
+
+                   <div class="form-group row">
+                
+                <label for="name" class="col-md-6 control-label text-right">First Name</label>
+                <div class="col-md-6">
+                    <input ng-model="profile.name" type="text"  class="form-control" placeholder="Name"/>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="form-group row">
+                
+                <label for="name" class="col-md-6 control-label text-right">Last Name</label>
+                <div class="col-md-6">
+                    <input ng-model="profile.lastname" type="text" class="form-control" placeholder="Last Name"/>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="form-group row">
+                
+                <label for="name" class="col-md-6 control-label text-right">Address</label>
+                <div class="col-md-6">
+                    <input ng-model="profile.address" type="text" class="form-control" placeholder="Address"/>
+                </div>
+              </div>
+              <hr/>
+              <div class="form-group row">
+                
+                <label for="name" class="col-md-6 control-label text-right">Sex</label>
+                <div class="col-md-6">
+                <select ng-model="profile.sex" class="form-control"  >
+                      <option value=""></option>
+                	<option value="Male">Male</option>
+                	<option value="Female">Female</option>
+              
+
+                </select>
+                 
+                </div>
+              </div>
+              <hr/>
+              <div class="form-group row">
+                
+                <label for="name" class="col-md-6 control-label text-right">Email</label>
+                <div class="col-md-6">
+                    <input ng-model="profile.email" type="text" class="form-control" placeholder="Email"/>
+                </div>
+              </div>
+              <hr/>
+
+              <div class="form-group row">
+                
+                <label for="name" class="col-md-6 control-label text-right">Phone</label>
+                <div class="col-md-6">
+                    <input ng-model="profile.phone" type="text" class="form-control" placeholder="Phone"/>
+                </div>
+              </div>
+              <hr/>
+
+               <div class="form-group row">
+                  <label for="logo" class="col-md-2 control-label"> </label>
+                  <div class="col-md-12">
+                     <input class="form-control"  type="file" ng-model="profile.photo" name="inputFile" base-sixty-four-input  maxsize="500" accept="image/*">
+
+                  </div>
+              </div>
+
+
+               
+              
+                  
+          </div>
+          </div>
+          <div class="col-md-1">
+          </div>
+      </div>
+
+<hr/>
+
+
+<div class="clearfix"></div>
+ 
+  </form>
+</div>
+<div dw-loading="products" dw-loading-options="{text: ''}"></div>
+<div class="box" ng-if="!profile._id">
+  <h3>Click on the  name to view details... <i class="fa fa-arrow-right"></i></h3>
+</div>
+</div>
+<div class="col-md-1">
+</div>
+
+<div class="col-md-5" style="margin-top: 73px">
+<div class="panel panel-primary">
+  <div class="panel-heading">Profile
+
+    </div>
+  <div class="panel-body">
+    <div infinite-scroll='loadMore()'>
+    <table class="table table-striped table-responsive" ts-wrapper>
+    <thead>
+        <tr>
+            
+            <th ts-criteria="active">&nbsp;</th>
+            <th ts-criteria="name">Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width:200px;height:200px"><a href=""  ng-click="profileDetail(user);"><img    data-ng-src="data:image/png;base64,{{user.photo[0].base64}}" data-err-src="/assets/images/photo.png"/> </a></td>
+            <td><a href=""  ng-click="profileDetail(user);">{{user.title}}&nbsp;{{user.name}}&nbsp;{{user.lastname}}<br>{{user.address}}<br>{{user.phone}}</a></td>
+            
+        </tr>
+        <tr>
+            <td colspan="2"><h3>Your profile 100 % complete<h3></td>
+           
+            
+        </tr>
+    </tbody>
+    </table>
+</div> <!-- Infinite Scroll -->
+</div>
+</div>
+
+</div>
+
+  
+</form>
